@@ -1,0 +1,93 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+@keyframes rainbow {
+    0% { color: red; }
+    14% { color: orange; }
+    28% { color: yellow; }
+    42% { color: green; }
+    56% { color: blue; }
+    70% { color: indigo; }
+    84% { color: violet; }
+    100% { color: red; }
+}
+
+@keyframes float {
+    0% { transform: translateY(0); }
+    50% { transform: translateY(-10px); }
+    100% { transform: translateY(0); }
+}
+
+p {
+    font-size: 20px;
+    animation: rainbow 5s linear infinite, float 1s ease-in-out infinite alternate;
+    margin: 20px;
+}
+/* 定义表格样式 */
+table {
+    width: 700px;                 /* 设置表格宽度为700px */
+    border-collapse: collapse;    /* 合并边框 */
+    margin: 10px 20px;
+    font-family: Arial, sans-serif; /* 设置表格字体家族，增加可读性 */
+}
+
+/* 定义表格单元格样式 */
+table, th, td {
+    border: 1px solid #ddd;      /* 改变边框颜色，使视觉上更加柔和 */
+}
+
+/* 定义表格标题样式 */
+th {
+    background-color: #f2f2f2;   /* 添加背景颜色 */
+    font-weight: bold;           /* 设置字体加粗 */
+    font-size: 30px;             /* 设置表头字体大小为30px */
+    padding: 10px;               /* 增加表头内边距，使内容与边框保持一定距离 */
+    text-align: left;            /* 设置表头文字左对齐 */
+}
+
+/* 定义表格数据样式 */
+td {
+    font-size: 15px;             /* 设置表格内字体大小为15px */
+    padding: 10px;               /* 增加表格数据内边距，使内容与边框保持一定距离 */
+    text-align: left;            /* 设置表格数据文字左对齐 */
+}
+
+/* 鼠标悬停在表格行上时的样式 */
+tr:hover {
+    background-color: #f9f9f9;   /* 鼠标悬停时，行背景颜色变浅 */
+}
+/* 基本按钮样式 */
+.footer_button {
+    width: 700px;
+    height: 50px;
+    background-color: #007bff; /* 更改为蓝色背景 */
+    border-radius: 20px;
+    border: none; /* 移除边框 */
+    cursor: pointer; /* 更改鼠标指针为手势 */
+    transition: background-color 0.3s ease, transform 0.3s ease; /* 平滑过渡背景颜色和大小变化 */
+    margin: 10px 20px;
+    color: white; /* 添加文字颜色，以便与蓝色背景形成对比 */
+    font-size: 16px; /* 可选: 设置字体大小 */
+    transform: scale(1); /* 初始缩放比例 */
+}
+
+/* 鼠标移动上去的样式 */
+.footer_button:hover {
+    background-color: #0056b3; /* 鼠标悬停时加深背景颜色 */
+    transform: scale(1.05); /* 缩放比例增加5%，使按钮轻微放大 */
+}
+
+/* 按钮被点击时的样式 */
+.footer_button:active {
+    background-color: #003d82; /* 点击时进一步加深背景颜色 */
+    transform: scale(0.95); /* 缩放比例减少5%，使按钮轻微缩小 */
+    transition: transform 0.1s ease; /* 缩小效果的过渡时间更短，以便快速响应 */
+}
+
+.delete-button {
+    width: 100%; /* 按钮填满整个单元格 */
+    font-weight: bold; /* 字体加粗 */
+    color: red; /* 字体颜色变为红色 */
+}

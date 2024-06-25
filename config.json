@@ -1,0 +1,30 @@
+[
+  {
+    "id": "ksh",
+    "label": "考生号"
+  },
+  {
+    "id": "pwd",
+    "label": "密码"
+  },
+  {
+    "id": "yxdh",
+    "label": "计划院校"
+  },
+  {
+    "id": "zydh1",
+    "label": "专业一"
+  },
+  {
+    "id": "zydh2",
+    "label": "专业二"
+  },
+  {
+    "id": "zyzytj",
+    "label": "是否服从专业调剂"
+  },
+  {
+    "id": "gsftj",
+    "label": "是否服从高收费专业调剂"
+  }
+]

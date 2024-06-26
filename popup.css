@@ -58,36 +58,59 @@ td {
 tr:hover {
     background-color: #f9f9f9;   /* 鼠标悬停时，行背景颜色变浅 */
 }
-/* 基本按钮样式 */
+/* 优化后的按钮样式 */
 .footer_button {
-    width: 700px;
+    width: 100%; /* 按钮宽度填满容器 */
     height: 50px;
-    background-color: #007bff; /* 更改为蓝色背景 */
-    border-radius: 20px;
-    border: none; /* 移除边框 */
-    cursor: pointer; /* 更改鼠标指针为手势 */
-    transition: background-color 0.3s ease, transform 0.3s ease; /* 平滑过渡背景颜色和大小变化 */
-    margin: 10px 20px;
-    color: white; /* 添加文字颜色，以便与蓝色背景形成对比 */
-    font-size: 16px; /* 可选: 设置字体大小 */
-    transform: scale(1); /* 初始缩放比例 */
+    background-color: #007bff;
+    border-radius: 5px; /* 减小边框半径以便更容易点击 */
+    border: none;
+    cursor: pointer;
+    transition: background-color 0.1s ease, transform 0.1s ease; /* 减少过渡时间以便快速响应 */
+    margin: 10px 0; /* 上下边距，左右边距设置为0 */
+    color: white;
+    font-size: 16px;
+    font-weight: bold; /* 加粗字体 */
+    text-align: center; /* 文本居中 */
+    line-height: 50px; /* 设置行高以垂直居中文字 */
+    outline: none; /* 移除点击时的轮廓线 */
+    user-select: none; /* 防止选中文字 */
 }
 
-/* 鼠标移动上去的样式 */
+/* 鼠标悬停时的样式 */
 .footer_button:hover {
-    background-color: #0056b3; /* 鼠标悬停时加深背景颜色 */
-    transform: scale(1.05); /* 缩放比例增加5%，使按钮轻微放大 */
+    background-color: #0056b3;
+    transform: scale(1.02); /* 微小放大以提供更好的视觉反馈 */
 }
 
 /* 按钮被点击时的样式 */
 .footer_button:active {
-    background-color: #003d82; /* 点击时进一步加深背景颜色 */
-    transform: scale(0.95); /* 缩放比例减少5%，使按钮轻微缩小 */
-    transition: transform 0.1s ease; /* 缩小效果的过渡时间更短，以便快速响应 */
+    background-color: #003d82;
+    transform: scale(0.98); /* 微小缩小以提供更好的视觉反馈 */
+    transition: transform 0.05s ease; /* 减少过渡时间以便快速响应 */
 }
 
+/* 为删除按钮添加特定的样式 */
 .delete-button {
-    width: 100%; /* 按钮填满整个单元格 */
-    font-weight: bold; /* 字体加粗 */
-    color: red; /* 字体颜色变为红色 */
+    background-color: #f44336; /* 红色背景 */
+    color: white; /* 白色文字 */
+    border-radius: 5px; /* 边框半径 */
+    border: none; /* 无边框 */
+    padding: 10px; /* 内边距 */
+    font-size: 16px; /* 字体大小 */
+    font-weight: bold; /* 加粗字体 */
+    text-align: center; /* 文本居中 */
+    cursor: pointer; /* 鼠标指针样式 */
+    transition: background-color 0.1s ease, transform 0.1s ease; /* 过渡效果 */
+}
+
+.delete-button:hover {
+    background-color: #d32f2f; /* 悬停时更深红色 */
+    transform: scale(1.02); /* 微小放大 */
+}
+
+.delete-button:active {
+    background-color: #c62828; /* 点击时更深红色 */
+    transform: scale(0.98); /* 微小缩小 */
+    transition: transform 0.05s ease; /* 减少过渡时间 */
 }

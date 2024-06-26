@@ -71,37 +71,62 @@ document.addEventListener('DOMContentLoaded', function() {
     document.getElementById('data-table').addEventListener('click', function(event) {
         const target = event.target;
         if (target.tagName === 'TD') {
-            editCell(target);
+            makeCellEditable(target);
         }
     });
 });
 
 // 编辑单元格的函数
-function editCell(cell) {
-    // 创建一个文本框元素，用于编辑单元格内容
-    const input = document.createElement('input');
-    input.type = 'text';
-    input.value = cell.textContent;
+function makeCellEditable(cell) {
+    // 设置单元格为可编辑
+    cell.contentEditable = true;
 
-    // 替换单元格内容为文本框
-    cell.textContent = '';
-    cell.appendChild(input);
-
-    // 当文本框失去焦点时保存数据
-    input.addEventListener('blur', function() {
-        cell.textContent = input.value;
-    });
-
-    // 当在文本框中按下回车键时也保存数据
-    input.addEventListener('keypress', function(event) {
-        if (event.key === 'Enter') {
-            cell.textContent = input.value;
+    // 为防止用户在编辑时选择其他单元格，暂时禁用其他单元格的点击事件
+    const allCells = document.querySelectorAll('#data-table td');
+    allCells.forEach(c => {
+        if (c !== cell) {
+            c.addEventListener('click', preventEdit, true);
         }
     });
 
-    // 将焦点设置到文本框上，以便立即可以编辑
-    input.focus();
+    // 将焦点设置到单元格上，以便立即可以编辑
+    cell.focus();
+
+    // 保存原始文本，以便在取消编辑时恢复
+    const originalText = cell.textContent;
+
+    // 当单元格失去焦点时保存数据
+    cell.addEventListener('blur', function() {
+        saveCellData(cell);
+        cell.contentEditable = false; // 关闭编辑模式
+
+        // 恢复其他单元格的点击事件
+        allCells.forEach(c => {
+            c.removeEventListener('click', preventEdit, true);
+        });
+    });
+
+    // 如果需要，也可以添加按键监听来处理回车键
+    cell.addEventListener('keypress', function(event) {
+        if (event.key === 'Enter') {
+            event.preventDefault(); // 防止换行
+            cell.blur(); // 失焦以保存数据
+        }
+    });
+
+    // 阻止编辑的函数
+    function preventEdit(event) {
+        event.preventDefault();
+    }
+
+    // 保存单元格数据的函数
+    function saveCellData(cell) {
+        // 这里可以添加代码来保存单元格的数据到存储或其他地方
+        console.log('Saving data:', cell.textContent);
+    }
 }
+
+
 document.getElementById('saveValue').addEventListener('click', function() {
     fetchConfigJson()
         .then(templateConfig => {

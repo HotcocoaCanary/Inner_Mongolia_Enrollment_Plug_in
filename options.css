@@ -1,7 +1,15 @@
-body {
-    margin: 20px;
+/* 重置默认边距和填充 */
+* {
+    margin: 0;
+    padding: 0;
 }
 
+body {
+    margin: 20px;
+    font-family: Arial, sans-serif; /* 设置一个通用的字体家族以提高可读性 */
+}
+
+/* 优化表格样式 */
 #data-table {
     width: 100%;
     border-collapse: collapse;
@@ -9,22 +17,62 @@ body {
 
 #data-table th, #data-table td {
     border: 1px solid #ddd;
-    padding: 8px;
+    padding: 12px; /* 增加单元格内边距 */
+    font-size: 16px; /* 增加字体大小 */
     text-align: left;
 }
 
 #data-table th {
-    background-color: #f2f2f2;
+    background-color: #4CAF50; /* 使用更鲜明的颜色区分表头 */
+    color: white; /* 设置表头文字颜色 */
+    font-weight: bold; /* 加粗表头文字 */
 }
 
+/* 优化标题样式 */
+h1 {
+    font-size: 24px; /* 增加标题字体大小 */
+    margin-bottom: 20px; /* 添加底部边距 */
+}
+
+/* 优化按钮样式 */
 .footer_button {
-    padding: 10px 20px;
+    width: calc(50% - 10px);
+    padding: 15px 30px; /* 增加按钮内边距 */
     margin-top: 20px;
     border: 1px solid #ddd;
     background-color: #f2f2f2;
     cursor: pointer;
+    font-size: 18px; /* 增加按钮文字大小 */
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
 }
 
-.footer_button:hover {
-    background-color: #ddd;
+.footer_button:hover, .footer_button:focus {
+    background-color: #ddd; /* 悬停时改变背景颜色 */
+    outline: none; /* 移除按钮聚焦时的轮廓线 */
+}
+
+/* 添加点击时的样式 */
+.footer_button:active {
+    background-color: #ccc; /* 点击时进一步改变背景颜色 */
+}
+/* 为删除按钮添加样式 */
+.delete-button {
+    width: 100%; /* 设置按钮宽度为100%，以填满单元格 */
+    height: 100%; /* 设置按钮高度为100%，以填满单元格 */
+    padding: 8px; /* 添加内边距 */
+    border: none; /* 移除边框 */
+    background-color: #f44336; /* 设置背景颜色为红色 */
+    color: white; /* 设置文字颜色为白色 */
+    font-size: 16px; /* 设置字体大小 */
+    cursor: pointer; /* 设置鼠标悬停时的光标样式 */
+    transition: background-color 0.3s ease; /* 添加过渡效果 */
+}
+
+.delete-button:hover, .delete-button:focus {
+    background-color: #d32f2f; /* 悬停时改变背景颜色为更深的红色 */
+    outline: none; /* 移除按钮聚焦时的轮廓线 */
+}
+
+.delete-button:active {
+    background-color: #c62828; /* 点击时改变背景颜色为更深的红色 */
 }
